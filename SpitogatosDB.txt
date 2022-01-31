@@ -1,0 +1,19 @@
+CREATE DATABASE spitogatos;
+USE spitogatos;
+CREATE TABLE user_customer (
+    user_id int(255) auto_increment,
+    username varchar(255),
+    password varchar(255),
+    PRIMARY KEY (user_id)
+);
+
+CREATE TABLE properties (
+    property_id int(255) auto_increment,
+    user_id int(255),
+    region varchar(255),
+    price int(255),
+    availability int(2),/*number 1=selling,number 0=renting*/
+    area int(255),
+    PRIMARY KEY (property_id),
+    FOREIGN KEY (user_id) REFERENCES user_customer(user_id)
+);
